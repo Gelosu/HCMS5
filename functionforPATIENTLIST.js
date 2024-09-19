@@ -34,7 +34,6 @@ function submitPatientForm(event) {
 }
 
 
-/// Function to update the medicine table with new data
 // Function to update the patient table with new data
 function updatePatientTable(patients) {
     var tableBody = document.querySelector('#patientTable tbody');
@@ -65,8 +64,6 @@ function updatePatientTable(patients) {
         tableBody.innerHTML = '<tr><td colspan="8">No patients found</td></tr>';
     }
 }
-
-
 
 // Function to close the add patient modal
 function closeAddPatientModal() {

@@ -180,3 +180,26 @@ function deleteMedicine(medId) {
         .catch(error => console.error('Error deleting record:', error));
     }
 }
+
+
+document.querySelectorAll('#medTable th .resizer').forEach(resizer => {
+    let startX, startWidth;
+
+    resizer.addEventListener('mousedown', e => {
+        startX = e.clientX;
+        startWidth = resizer.parentElement.offsetWidth;
+        document.addEventListener('mousemove', handleMouseMove);
+        document.addEventListener('mouseup', () => {
+            document.removeEventListener('mousemove', handleMouseMove);
+        });
+    });
+
+    function handleMouseMove(e) {
+        const newWidth = startWidth + (e.clientX - startX);
+        resizer.parentElement.style.width = `${newWidth}px`;
+        const index = Array.from(resizer.parentElement.parentElement.children).indexOf(resizer.parentElement);
+        Array.from(resizer.parentElement.parentElement.parentElement.querySelectorAll('tbody tr')).forEach(row => {
+            row.children[index].style.width = `${newWidth}px`;
+        });
+    }
+});

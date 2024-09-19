@@ -16,64 +16,66 @@
         </div>
     </div>
     <div class="table-container">
-        <table id="medTable">
-            <thead>
-                <tr>
-                    <th>Medicine Number</th>
-                    <th>Medicine Name</th>
-                    <th>Description</th>
-                    <th>Stock In</th>
-                    <th>Stock Out</th>
-                    <th>Expiration Date</th>
-                    <th>Stock Available</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php
-include 'connect.php';
+    <table id="medTable">
+        <thead>
+            <tr>
+            <th>Medicine Number<div class="resizer"></div></th>
+                <th>Medicine Name<div class="resizer"></div></th>
+                <th>Description<div class="resizer"></div></th>
+                <th>Stock In<div class="resizer"></div></th>
+                <th>Stock Out<div class="resizer"></div></th>
+                <th>Expiration Date<div class="resizer"></div></th>
+                <th>Stock Available<div class="resizer"></div></th>
+                <th>Action<div class="resizer"></div></th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php
+        include 'connect.php';
 
-$sql = "SELECT * FROM inv_meds";
-$result = $conn->query($sql);
+        $sql = "SELECT * FROM inv_meds";
+        $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        echo "<tr>";
-        echo "<td>" . $row["meds_number"] . "</td>";
-        echo "<td>" . $row["meds_name"] . "</td>";
-        echo "<td>" . $row["med_dscrptn"] . "</td>";
-        echo "<td>" . $row["stock_in"] . "</td>";
-        echo "<td>" . $row["stock_out"] . "</td>";
-        echo "<td>" . $row["stock_exp"] . "</td>";
-        echo "<td>" . $row["stock_avail"] . "</td>";
-        echo "<td class='action-icons'>";
-        echo "<button onclick=\"openEditMed('" . 
-            $row["med_id"] . "', '" . 
-            $row["meds_number"] . "', '" .
-            $row["meds_name"] . "', '" . 
-            $row["med_dscrptn"] . "', '" . 
-            $row["stock_in"] . "', '" . 
-            $row["stock_out"] . "', '" . 
-            $row["stock_exp"] . "', '" . 
-            $row["stock_avail"] . "')\">";
-        echo "<img src='edit_icon.png' alt='Edit' style='width: 20px; height: 20px;'></button>";
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td><div class='cell-content'>" . $row["meds_number"] . "</div></td>";
+                echo "<td><div class='cell-content'>" . $row["meds_name"] . "</div></td>";
+                echo "<td><div class='cell-content'>" . $row["med_dscrptn"] . "</div></td>";
+                echo "<td><div class='cell-content'>" . $row["stock_in"] . "</div></td>";
+                echo "<td><div class='cell-content'>" . $row["stock_out"] . "</div></td>";
+                echo "<td><div class='cell-content'>" . $row["stock_exp"] . "</div></td>";
+                echo "<td><div class='cell-content'>" . $row["stock_avail"] . "</div></td>";
+                echo "<td class='action-icons'>";
 
-        echo "<button onclick=\"deleteMedicine('" . $row["med_id"] . "')\">";
-        echo "<img src='delete_icon.png' alt='Delete' class='delete-btn' style='width: 20px; height: 20px;'></button>";
-        
-        echo "</td>";
-        echo "</tr>";
-    }
-} else {
-    echo "<tr><td colspan='7'>No medicines found</td></tr>";
-}
+                echo "<a onclick=\"openEditMed('" . 
+                    $row["med_id"] . "', '" . 
+                    $row["meds_number"] . "', '" . 
+                    $row["meds_name"] . "', '" . 
+                    $row["med_dscrptn"] . "', '" . 
+                    $row["stock_in"] . "', '" . 
+                    $row["stock_out"] . "', '" . 
+                    $row["stock_exp"] . "', '" . 
+                    $row["stock_avail"] . "')\">";
 
-$conn->close();
-?>
+                echo "<img src='edit_icon.png' alt='Edit' style='width: 20px; height: 20px;'></a>";
 
-            </tbody>
-        </table>
-        </div>
+                echo "<a onclick=\"deleteMedicine('" . $row["med_id"] . "')\">";
+                echo "<img src='delete_icon.png' alt='Delete' class='delete-btn' style='width: 20px; height: 20px;'></a>";
+                
+                echo "</td>";
+                echo "</tr>";
+            }
+        } else {
+            echo "<tr><td colspan='8'>No medicines found</td></tr>";
+        }
+
+        $conn->close();
+        ?>
+        </tbody>
+    </table>
+</div>
+
     </section>
 
 
@@ -82,8 +84,8 @@ $conn->close();
 
 
 <!-- Modal for adding new medicine -->
-<div id="addMedicineModal" class="modal">
-    <div class="modal-content">
+<div id="addMedicineModal" class="modal2">
+    <div class="modal-content2">
         <span class="close" onclick="closeAddMedicineModal()">&times;</span>
         <h3>Add New Medicine</h3>
         <form id="addmedicine" onsubmit="submitMedicineForm(event)">
@@ -94,7 +96,7 @@ $conn->close();
             <input type="text" id="medName" name="medName" required><br><br>
             
             <label for="medDesc">Description:</label>
-            <input type="text" id="medDesc" name="medDesc"><br><br>
+            <input type="text" id="medDesc" name="medDesc" required><br><br>
             
             <label for="stockIn">Stock In:</label>
             <input type="number" id="stockIn" name="stockIn" required><br><br>
@@ -116,8 +118,8 @@ $conn->close();
 
 
 <!-- Modal for editing medicine -->
-<div id="editMedicineModal" class="modal">
-    <div class="modal-content">
+<div id="editMedicineModal" class="modal2">
+    <div class="modal-content2">
         <span class="close" onclick="closeEditMedModal()">&times;</span>
         <h3>Edit Medicine</h3>
         <form id="editForm2" onsubmit="submitEditMedicineForm(event)">

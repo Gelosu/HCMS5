@@ -49,17 +49,17 @@
             echo "<td>" . $row["stck_expired"] . "</td>"; 
             echo "<td>" . $row["stck_avl"] . "</td>"; 
             echo "<td class='action-icons'>";
-            echo "<button onclick=\"openEditMedSupp('" . 
+            echo "<a onclick=\"openEditMedSupp('" . 
             $row["med_supId"] . "', '" . 
             $row["prod_name"] . "', '" . 
             $row["stck_in"] . "', '" . 
             $row["stck_out"] . "', '" . 
             $row["stck_expired"] . "', '" . 
             $row["stck_avl"] . "')\">";
-       echo "<img src='edit_icon.png' alt='Edit' style='width: 20px; height: 20px;'></button>";
+       echo "<img src='edit_icon.png' alt='Edit' style='width: 20px; height: 20px;'></a>";
        
-            echo "<button onclick=\"deleteMedicalSupply('" . $row["med_supId"] . "')\">";
-            echo "<img src='delete_icon.png' alt='Delete' class='delete-btn' style='width: 20px; height: 20px;'></button>";
+            echo "<a onclick=\"deleteMedicalSupply('" . $row["med_supId"] . "')\">";
+            echo "<img src='delete_icon.png' alt='Delete' class='delete-btn' style='width: 20px; height: 20px;'></a>";
             echo "</td>";
             echo "</tr>";
         }
@@ -75,8 +75,8 @@
 </div>
 </section>
 <!-- Modal for adding new medical supply -->
-<div id="addMedicalSupplyModal" class="modal">
-    <div class="modal-content">
+<div id="addMedicalSupplyModal" class="modal1">
+    <div class="modal-content1">
         <span class="close" onclick="closeAddMedicalSupplyModal()">&times;</span>
         <h3>Add New Medical & Emergency Supply</h3>
         <form id="addMedicalSupplyForm" onsubmit="submitMedicalSupplyForm(event)">
@@ -101,8 +101,8 @@
 </div>
 
 <!-- Modal for editing medical supplies -->
-<div id="editMedicalSupplyModal" class="modal" style="display:none;">
-    <div class="modal-content">
+<div id="editMedicalSupplyModal" class="modal1">
+    <div class="modal-content1">
         <span class="close" onclick="closeEditModal()">&times;</span>
         <h3>Edit Medical/Emergency Supply</h3>
         <form id="editForm" onsubmit="submitEditMedicalSupplyForm(event)">

@@ -352,31 +352,7 @@ table tr:hover {
 
 
 
-/* Modal container */
-.modal2 {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-}
 
-/* Modal content */
-.modal-content2 {
-    background-color: #fefefe;
-    margin: 5% auto; /* Center the modal */
-    padding: 20px; /* Add spacing inside the modal */
-    border: 1px solid #000000;
-    border-radius: 8px; /* Rounded corners */
-    width: 80%; /* Adjust width */
-    max-width: 600px; /* Maximum width */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for a subtle effect */
-    position: relative;
-}
 
 /* Delete Button */
 .delete-btn2 {
@@ -417,83 +393,485 @@ table tr:hover {
 
 
 
-/* Medicine container and entries */
-#medicineContainer,
-#editMedicineContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Space between entries */
+
+
+/*MODALS, INPUTS, BUTTONS AND TABLES*/
+
+/* MEDICAL SUPPLIES MODAL */
+.modal1 {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4); 
 }
 
-.medicine-entry {
-    display: flex;
-    align-items: center;
-    gap: 5px; /* Space between labels and inputs */
+
+.modal-content1 {
+    background-color: #fefefe;
+    margin: 4% auto; 
+    padding: 8px; 
+    border: 1px solid #000000;
+    width: 30%; 
+    max-height: 500px;
+    max-width: 800px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
-#medicine-dropdown {
-    
-    flex: 1;
-    width: 100%; /* Grow to fill available space */
+
+.modal-content1 label {
+    display: block; /* Makes labels block elements to ensure they appear on their own line */
+    margin-bottom: 1px; /* Space below each label */
+    font-weight: bold; /* Bold text for labels */
+    color: #333; /* Darker text color for better readability */
+    font-size: 16px; /* Adjust font size as needed */
 }
 
-.medicine-amount {
-    width: 10px; /* Fixed width for amount input */
+/* Input styling specifically for inputs within the modal-content1 */
+.modal-content1 input[type="text"],
+.modal-content1 input[type="number"] {
+    margin-top: -3px;
+    padding: 5px;
+    margin-bottom: 1px;
+    border: 1px solid #000000; 
+    border-radius: 8px;
+    font-size: 16px;
+    width: 240px; 
+    margin-left:65px;
 }
 
-/* Add Medicine Button */
-button[type="button"] {
-    background-color: #368533; /* Green background */
-    color: white;
+/* Submit button styling specifically for the modal */
+.modal-content1 input[type="submit"] {
+    background-color:  #368533; /* Green background */
+    color: white; /* White text */
+    padding: 14px 20px; /* Some padding */
     border: none;
-    padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-    margin-top: 20px;
+    margin-top:-20px;
+    margin-left: 120px;
 }
 
+.modal-content1 input[type="submit"]:hover {
+    background-color: #2d6e2a; /* Darker green on hover */
+}
 
-
-
-        /* Hide patient list section by default */
-        #patient-list {
-            display: none;
-        }
-
-        /* Hide medicine inventory section by default */
-        #medicine-inventory {
-            display: none;
-        }
-
-        #patient-appointment{
-            display: none;
-        }
-    
-
-      /* Container for health worker information */
-.healthworker-info {
-    font-size: 16px; /* Adjust font size as needed */
-    color: white; /* Set the text color to white */
-    margin: 5% auto;
+.modal-content1 h3{
     text-align: center;
-   
+    font-size: 20px;
 }
 
-/* Style for the health worker label */
-.healthworker-label {
-    font-weight: bold; /* Make the label bold */
-    margin-left: 20px; /* Add space between the label and the name */
+/* Close button specifically inside modal-content1 */
+.modal-content1 .close {
+    color: #000000; /* Default color */
+    text-align: center;
+    font-size: 28px; /* Make the font bigger */
+    font-weight: bold; /* Make it bold */
+    cursor: pointer; /* Make it look clickable */
+    margin-right: 450px;
+    margin-top: 45px; /* Add some spacing to the right */
 }
 
-/* Style for the health worker name */
-.healthworker-name {
-    font-weight: normal; /* Ensure the name is not bold */
+/* Change color on hover */
+.modal-content1 .close:hover,
+.modal-content1 .close:focus {
+    color: #f00; /* Red on hover */
+    text-decoration: none;
 }
+
+
+/* Heading (h2) styling */
+#medical_supplies-inventory h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Styling for the search and add button container */
+#medical_supplies-inventory .search-and-add-container {
+    display: flex;
+    justify-content: space-between; /* Separate search and add button */
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/* Styling for the search bar container */
+#medical_supplies-inventory .search-container input {
+    padding: 10px;
+    width: 100%;
+    max-width: 600px; /* Limit the width of the search bar */
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-left: -2px;
+}
+
+/* Styling for the add button container */
+#medical_supplies-inventory .add-button-container button {
+    background-color:  #2d6e2a; /* Green button */
+    color: white; /* White text */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 190px;
+    font-size: 16px;
+    margin-right: 0px;
+    margin-left:20px;
+    margin-top:5px;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Add button hover effect */
+#medical_supplies-inventory .add-button-container button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Styling for the table container */
+#medical_supplies-inventory .table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+    margin-right: 190px;
+    max-height: 350px; /* Enable horizontal scrolling if the table is too wide */
+}
+
+/* Styling for the table */
+#medicalSuppliesTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Styling for table headers */
+#medicalSuppliesTable th {
+    background-color:  #2d6e2a; /* Green header background */
+    color: white;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #000000;
+}
+
+/* Styling for table rows */
+#medicalSuppliesTable td {
+    padding: 10px;
+    border-bottom: 1px solid #000000;
+    color: #333;
+}
+
+/* Hover effect on table rows */
+#medicalSuppliesTable tr:hover {
+    background-color: #c0fce3; /* Light gray background on hover */
+}
+
+
+/* END OF MEDICAL SUPPLY*/
+
+/* MEDICINE INVENTORY */
+.modal2 {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+
+
+.modal-content2 {
+    background-color: #fefefe;
+    margin: 4% auto; 
+    padding: 8px; 
+    border: 1px solid #000000;
+    width: 30%; 
+    max-height: 900px;
+    max-width: 700px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+
+.modal-content2 label {
+    text-align: center; /* Makes labels block elements to ensure they appear on their own line */
+    margin-bottom: 16px; /* Space below each label */
+    font-weight: bold; /* Bold text for labels */
+    color: #333; /* Darker text color for better readability */
+    font-size: 16px; /* Adjust font size as needed */
+}
+
+/* Input styling specifically for inputs within the modal-content1 */
+.modal-content2 input[type="text"],
+.modal-content2 input[type="number"],.modal-content2 input[type="date"]{
+    margin-top: -20px;
+    padding: 3px;
+    margin-bottom: 1px;
+    border: 1px solid #000000; 
+    border-radius: 8px;
+    font-size: 16px;
+    width: 240px; 
+    margin-left:65px;
+}
+
+/* Submit button styling specifically for the modal */
+.modal-content2 input[type="submit"] {
+    background-color:  #368533; /* Green background */
+    color: white; /* White text */
+    padding: 14px 20px; /* Some padding */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top:-20px;
+    margin-left: 120px;
+}
+
+.modal-content2 input[type="submit"]:hover {
+    background-color: #2d6e2a; /* Darker green on hover */
+}
+
+.modal-content2 h3{
+    text-align: center;
+    font-size: 20px;
+}
+
+/* Close button specifically inside modal-content1 */
+.modal-content2 .close {
+    color: #000000; /* Default color */
+    text-align: center;
+    font-size: 28px; /* Make the font bigger */
+    font-weight: bold; /* Make it bold */
+    cursor: pointer; /* Make it look clickable */
+    margin-right: 450px;
+    margin-top: 45px; /* Add some spacing to the right */
+}
+
+/* Change color on hover */
+.modal-content2 .close:hover,
+.modal-content2 .close:focus {
+    color: #f00; /* Red on hover */
+    text-decoration: none;
+}
+
+
+/* Heading (h2) styling */
+#medicine-inventory h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Styling for the search and add button container */
+/* Container styling for search bar and add button */
+#medicine-inventory .search-and-add-container {
+    display: flex;
+    justify-content: space-between; /* Keeps the search bar on the left and the add button on the right */
+    align-items: center; /* Vertically center the items */
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/* Styling for the search bar container */
+#medicine-inventory .search-container input {
+    padding: 10px;
+    width: 100%;
+    max-width: 1000px; /* Adjust this value based on your layout */
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+}
+
+/* Styling for the add button container */
+#medicine-inventory .add-button-container {
+    display: flex;
+    justify-content: flex-end; /* Aligns the button inside the container to the right */
+}
+
+#medicine-inventory .add-button-container button {
+    background-color: #2d6e2a; /* Green button */
+    color: white; /* White text */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    max-width: 200px; /* Limit the button width */
+    font-size: 16px;
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-right: -60px;
+    transition: background-color 0.3s ease;
+}
+
+
+/* Add button hover effect */
+#medicine-inventory .add-button-container button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Styling for the table container */
+#medicine-inventory .table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+    margin-right: 150px;
+    max-height: 350px; /* Enable horizontal scrolling if the table is too wide */
+}
+
+/* Styling for the table */
+#medTable {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Ensures column width limitations are respected */
+}
+
+/* Styling for table headers */
+#medTable th {
+    background-color: #2d6e2a; /* Green header background */
+    color: white;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #000000;
+    white-space: nowrap; /* Prevents text wrapping within the column */
+    overflow: hidden; /* Hides overflow if content exceeds column width */
+    text-overflow: ellipsis; /* Adds "..." if the text is too long for the column */
+    position: relative; /* Required for positioning the resizer */
+}
+
+.resizer {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    cursor: col-resize;
+    background-color: #00000000;
+}
+
+/* Styling for table rows */
+#medTable td {
+    padding: 10px;
+    border-bottom: 1px solid #000000;
+    color: #333;
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: hidden; /* Hides overflow if the content is too wide */
+    text-overflow: ellipsis; /* Adds "..." for overflowed content */
+}
+
+/* Adjust specific column width */
+#medTable th:first-child, /* First column header */
+#medTable td:first-child { /* First column cells */
+    width: 130px; /* Example width for the first column */
+}
+
+#medTable th:nth-child(2), /* Second column header */
+#medTable td:nth-child(2) { /* Second column cells */
+    width: 130px; /* Example width for the second column */
+}
+/* Adjust specific column width */
+#medTable th:first-child, /* First column header */
+#medTable td:first-child { /* First column cells */
+    width: 130px; /* Example width for the first column */
+}
+
+#medTable th:nth-child(2),
+#medTable th:nth-child(3),
+
+#medTable td:nth-child(2),
+#medTable td:nth-child(3)
+ {
+    width: 130px; /* Set width for these columns */
+    white-space: nowrap; /* Prevents text wrapping */
+    overflow: hidden; /* Hides overflow */
+    text-overflow: ellipsis; /* Adds "..." for overflowed content */
+}
+
+#medTable th:nth-child(4),
+#medTable th:nth-child(5),
+
+#medTable td:nth-child(4),
+#medTable td:nth-child(5)
+{
+    width: 80px; /* Set width for these columns */
+    white-space: nowrap; /* Prevents text wrapping */
+    overflow: hidden; /* Hides overflow */
+    text-overflow: ellipsis;
+
+}
+
+#medTable td:nth-child(6),
+#medTable td:nth-child(7),
+#medTable th:nth-child(6),
+#medTable th:nth-child(7){
+    width: 110px; /* Set width for these columns */
+    white-space: nowrap; /* Prevents text wrapping */
+    overflow: hidden; /* Hides overflow */
+    text-overflow: ellipsis;
+
+}
+
+#medTable th:nth-child(8),
+#medTable td:nth-child(8){
+    width: 50px; /* Set width for these columns */
+    white-space: nowrap; /* Prevents text wrapping */
+    overflow: hidden; /* Hides overflow */
+    text-overflow: ellipsis;
+}
+
+/* Hover effect on table rows */
+#medTable tr:hover {
+    background-color: #c0fce3; /* Light gray background on hover */
+}
+
+
+
+
+
+
+
+/* END OF MEDICINE INVENTORY*/
+
+/*SECTIONS*/
 
 #dashboard {
     display: none;
 }
+
+#medical_supplies-inventory {
+    display: none;
+}
+
+#medicine-inventory {
+    display: none;
+}
+
+#patient-med{
+    display: none;
+}
+
+#patient-list {
+    display: none;
+}
+
+
+#patient-appointment{
+    display: none;
+}
+
+
+
+/*DASHBOARD DESIGN*/
+
 
 #dashboard {
     padding: 20px;
@@ -503,24 +881,27 @@ button[type="button"] {
 .card-container {
     display: flex;
     gap: 20px;
-    flex-wrap: wrap; /* Cards will wrap if screen width is small */
-    justify-content: space-around; /* Centers the cards and leaves equal space */
+    flex-wrap: wrap; 
+    justify-content: space-around; 
     margin-top: 20px;
+    
+   
 }
 
 .card {
     background-color: white;
-    border: 2px solid black; /* Add a black border */
+    border: 2px solid black; 
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 250px;
+    padding: 40px;
+    width: 100px;
     text-align: center;
-    transition: transform 0.3s ease; /* Smooth hover effect */
+   
+    
 }
 
 .card:hover {
-    transform: translateY(-5px); /* Moves the card up on hover */
+    transform: scale(1.05); 
 }
 
 .card h3 {
